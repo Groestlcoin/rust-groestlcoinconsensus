@@ -1,4 +1,4 @@
 [submodule "depend/bitcoin"]
 	path = depend/bitcoin
-	url = https://github.com/bitcoin/bitcoin.git
-	branch = 0.19
+	url = https://github.com/Groestlcoin/groestlcoin.git
+	branch = 2.19.1

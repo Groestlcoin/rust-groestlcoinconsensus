@@ -1,18 +1,18 @@
 [package]
-name = "bitcoinconsensus"
+name = "groestlcoinconsensus"
 version = "0.19.0-1"
-authors = ["Tamas Blummer <tamas.blummer@gmail.com>"]
+authors = ["Groestlcoin Devs <groestlcoin@groestlcoin.org>"]
 license = "Apache-2.0"
-homepage = "https://github.com/rust-bitcoin/rust-bitcoinconsensus/"
-repository = "https://github.com/rust-bitcoin/rust-bitcoinconsensus/"
-description = "Bitcoin's libbitcoinconsensus with Rust binding."
-keywords = [ "bitcoin", "bitcoinconsensus", "libbitcoinconsensus" ]
+homepage = "https://github.com/Groestlcoin/rust-groestlcoinconsensus/"
+repository = "https://github.com/Groestlcoin/rust-groestlcoinconsensus/"
+description = "Groestlcoin's libbitcoinconsensus with Rust binding."
+keywords = [ "groestlcoin", "groestlcoinconsensus", "libgroestlcoinconsensus" ]
 readme = "README.md"
 exclude = ["/bitcoin/.github/**", "/bitcoin/.tx/**", "/bitcoin/build-aux/**", "/bitcoin/contrib/**", "/bitcoin/depends/**", "/bitcoin/doc/**", "/bitcoin/share/**", "/bitcoin/test/**", "/bitcoin/src/bench/**", "/bitcoin/src/config/**", "/bitcoin/src/consensus/**", "/bitcoin/src/leveldb/**", "/bitcoin/src/objtest/**", "/bitcoin/src/obj/**", "/bitcoin/src/policy/**", "/bitcoin/src/qt/**", "/bitcoin/src/rpc/**", "/bitcoin/src/support/**", "/bitcoin/src/test/**", "/bitcoin/src/univalue/**", "/bitcoin/src/wallet/**", "/bitcoin/src/zmq/**"]
 build = "build.rs"
 
 [lib]
-name = "bitcoinconsensus"
+name = "groestlcoinconsensus"
 path = "src/lib.rs"
 
 [features]
