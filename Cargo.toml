@@ -1,14 +1,14 @@
 [package]
 name = "groestlcoinconsensus"
-version = "0.19.0-1"
-authors = ["Groestlcoin Devs <groestlcoin@groestlcoin.org>"]
+version = "2.19.1"
+authors = ["Groestlcoin Devs <groestlcoin@gmail.com>"]
 license = "Apache-2.0"
 homepage = "https://github.com/Groestlcoin/rust-groestlcoinconsensus/"
 repository = "https://github.com/Groestlcoin/rust-groestlcoinconsensus/"
-description = "Groestlcoin's libbitcoinconsensus with Rust binding."
+description = "Groestlcoin's libgroestlcoinconsensus with Rust binding."
 keywords = [ "groestlcoin", "groestlcoinconsensus", "libgroestlcoinconsensus" ]
 readme = "README.md"
-exclude = ["/bitcoin/.github/**", "/bitcoin/.tx/**", "/bitcoin/build-aux/**", "/bitcoin/contrib/**", "/bitcoin/depends/**", "/bitcoin/doc/**", "/bitcoin/share/**", "/bitcoin/test/**", "/bitcoin/src/bench/**", "/bitcoin/src/config/**", "/bitcoin/src/consensus/**", "/bitcoin/src/leveldb/**", "/bitcoin/src/objtest/**", "/bitcoin/src/obj/**", "/bitcoin/src/policy/**", "/bitcoin/src/qt/**", "/bitcoin/src/rpc/**", "/bitcoin/src/support/**", "/bitcoin/src/test/**", "/bitcoin/src/univalue/**", "/bitcoin/src/wallet/**", "/bitcoin/src/zmq/**"]
+exclude = ["/groestlcoin/.github/**", "/groestlcoin/.tx/**", "/groestlcoin/build-aux/**", "/groestlcoin/contrib/**", "/groestlcoin/depends/**", "/groestlcoin/doc/**", "/groestlcoin/share/**", "/groestlcoin/test/**", "/groestlcoin/src/bench/**", "/groestlcoin/src/config/**", "/groestlcoin/src/consensus/**", "/groestlcoin/src/leveldb/**", "/groestlcoin/src/objtest/**", "/groestlcoin/src/obj/**", "/groestlcoin/src/policy/**", "/groestlcoin/src/qt/**", "/groestlcoin/src/rpc/**", "/groestlcoin/src/support/**", "/groestlcoin/src/test/**", "/groestlcoin/src/univalue/**", "/groestlcoin/src/wallet/**", "/groestlcoin/src/zmq/**"]
 build = "build.rs"
 
 [lib]

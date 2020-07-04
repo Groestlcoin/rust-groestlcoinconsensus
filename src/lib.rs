@@ -64,45 +64,45 @@ extern "C" {
         err: *mut Error) -> c_int;
 }
 
-/// Compute flags for soft fork activation heights on the Bitcoin network
+/// Compute flags for soft fork activation heights on the groestlcoin network
 pub fn height_to_flags(height: u32) -> u32 {
 
     let mut flag = VERIFY_NONE;
-    if height > 170059 {
+    if height > 1439422 {
         flag |= VERIFY_P2SH;
     }
-    if height > 363724 {
+    if height > 79999 {
         flag |= VERIFY_DERSIG;
     }
-    if height > 388381 {
+    if height > 2464000 {
         flag |= VERIFY_CHECKLOCKTIMEVERIFY;
     }
-    if height > 419328 {
+    if height > 1439424 {
         flag |= VERIFY_CHECKSEQUENCEVERIFY;
     }
-    if height > 481824 {
+    if height > 1439424 {
         flag |= VERIFY_NULLDUMMY | VERIFY_WITNESS
     }
     flag as u32
 }
 
-/// Return libbitcoinconsenus version
+/// Return libgroestlcoinconsenus version
 pub fn version () -> u32 {
     unsafe { bitcoinconsensus_version() as u32 }
 }
 
-/// Verify a single spend (input) of a Bitcoin transaction.
+/// Verify a single spend (input) of a Groestlcoin transaction.
 /// # Arguments
-///  * spend_output_script: a Bitcoin transaction output script to be spent, serialized in Bitcoin's on wire format
-///  * amount: The spent output amount in satoshis
-///  * spending_transaction: spending Bitcoin transaction, serialized in Bitcoin's on wire format
+///  * spend_output_script: a Groestlcoin transaction output script to be spent, serialized in Groestlcoin's on wire format
+///  * amount: The spent output amount in gros
+///  * spending_transaction: spending Groestlcoin transaction, serialized in Groestlcoin's on wire format
 ///  * input_index: index of the input within spending_transaction
 /// # Returns
 /// OK or Err. Note that amount will only be checked for Segwit transactions.
 ///
 /// # Example
 ///
-/// The (randomly choosen) Bitcoin transaction [aca326a724eda9a461c10a876534ecd5ae7b27f10f26c3862fb996f80ea2d45d](https://blockchain.info/tx/aca326a724eda9a461c10a876534ecd5ae7b27f10f26c3862fb996f80ea2d45d)
+/// The (randomly choosen) Groestlcoin transaction [aca326a724eda9a461c10a876534ecd5ae7b27f10f26c3862fb996f80ea2d45d](https://blockchain.info/tx/aca326a724eda9a461c10a876534ecd5ae7b27f10f26c3862fb996f80ea2d45d)
 /// spends one input, that is the first output of [95da344585fcf2e5f7d6cbf2c3df2dcce84f9196f7a7bb901a43275cd6eb7c3f](https://blockchain.info/tx/95da344585fcf2e5f7d6cbf2c3df2dcce84f9196f7a7bb901a43275cd6eb7c3f) with a value of 630482530 satoshis
 ///
 /// The spending transaction in wire format is:
