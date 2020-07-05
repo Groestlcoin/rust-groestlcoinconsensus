@@ -22,24 +22,24 @@ fn main() {
     let mut base_config = cc::Build::new();
     base_config
         .cpp(true)
-        .include("depend/bitcoin/src")
-        .include("depend/bitcoin/src/secp256k1/include")
+        .include("depend/groestlcoin/src")
+        .include("depend/groestlcoin/src/secp256k1/include")
         .define("__STDC_FORMAT_MACROS", None);
 
     // **Secp256k1**
     if !cfg!(feature = "external-secp") {
         base_config
-            .include("depend/bitcoin/src/secp256k1")
+            .include("depend/groestlcoin/src/secp256k1")
             .flag_if_supported("-Wno-unused-function") // some ecmult stuff is defined but not used upstream
             .define("SECP256K1_BUILD", "1")
-            // Bitcoin core defines libsecp to *not* use libgmp.
+            // Groestlcoin core defines libsecp to *not* use libgmp.
             .define("USE_NUM_NONE", "1")
             .define("USE_FIELD_INV_BUILTIN", "1")
             .define("USE_SCALAR_INV_BUILTIN", "1")
             // Technically libconsensus doesn't require the recovery feautre, but `pubkey.cpp` does.
             .define("ENABLE_MODULE_RECOVERY", "1")
             // The actual libsecp256k1 C code.
-            .file("depend/bitcoin/src/secp256k1/src/secp256k1.c");
+            .file("depend/groestlcoin/src/secp256k1/src/secp256k1.c");
 
         if is_big_endian {
             base_config.define("WORDS_BIGENDIAN", "1");
@@ -68,19 +68,19 @@ fn main() {
         base_config.define("WIN32", "1");
     }
     base_config
-        .file("depend/bitcoin/src/util/strencodings.cpp")
-        .file("depend/bitcoin/src/uint256.cpp")
-        .file("depend/bitcoin/src/pubkey.cpp")
-        .file("depend/bitcoin/src/hash.cpp")
-        .file("depend/bitcoin/src/primitives/transaction.cpp")
-        .file("depend/bitcoin/src/crypto/ripemd160.cpp")
-        .file("depend/bitcoin/src/crypto/sha1.cpp")
-        .file("depend/bitcoin/src/crypto/sha256.cpp")
-        .file("depend/bitcoin/src/crypto/sha512.cpp")
-        .file("depend/bitcoin/src/crypto/hmac_sha512.cpp")
-        .file("depend/bitcoin/src/script/bitcoinconsensus.cpp")
-        .file("depend/bitcoin/src/script/interpreter.cpp")
-        .file("depend/bitcoin/src/script/script.cpp")
-        .file("depend/bitcoin/src/script/script_error.cpp")
-        .compile("libbitcoinconsensus.a");
+        .file("depend/groestlcoin/src/util/strencodings.cpp")
+        .file("depend/groestlcoin/src/uint256.cpp")
+        .file("depend/groestlcoin/src/pubkey.cpp")
+        .file("depend/groestlcoin/src/hash.cpp")
+        .file("depend/groestlcoin/src/primitives/transaction.cpp")
+        .file("depend/groestlcoin/src/crypto/ripemd160.cpp")
+        .file("depend/groestlcoin/src/crypto/sha1.cpp")
+        .file("depend/groestlcoin/src/crypto/sha256.cpp")
+        .file("depend/groestlcoin/src/crypto/sha512.cpp")
+        .file("depend/groestlcoin/src/crypto/hmac_sha512.cpp")
+        .file("depend/groestlcoin/src/script/groestlcoinconsensus.cpp")
+        .file("depend/groestlcoin/src/script/interpreter.cpp")
+        .file("depend/groestlcoin/src/script/script.cpp")
+        .file("depend/groestlcoin/src/script/script_error.cpp")
+        .compile("libgroestlcoinconsensus.a");
 }
